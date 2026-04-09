@@ -37,7 +37,7 @@ def load_mock_data():
         return POLICIES_CACHE
     
     try:
-        with open(MOCK_DATA_PATH) as f:
+        with open(MOCK_DATA_PATH, encoding="utf-8") as f:
             data = json.load(f)
             POLICIES_CACHE = {p['policy_number']: p for p in data.get('policies', [])}
             print(f"✅ Loaded {len(POLICIES_CACHE)} policies from mock data", file=sys.stderr)

@@ -671,7 +671,7 @@ def process_claim_documents(document_paths: List[str]) -> str:
 
         output_file = OUTPUT_DIR / f"{path.stem}_extracted.json"
         try:
-            with open(output_file, "w") as f:
+            with open(output_file, "w", encoding="utf-8") as f:
                 json.dump(extracted, f, indent=2)
             print(f"   💾 Saved       : {output_file.name}")
         except Exception as e:

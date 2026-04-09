@@ -182,10 +182,10 @@ def run_preprocessing_graph(claim_prompt: str) -> str:
     # Try to read extracted JSONs
     for f in output_dir.glob("*_extracted.json"):
         try:
-            with open(f) as fh:
+            with open(f, encoding="utf-8") as fh:
                 _pipeline_trace["extraction_data"][f.stem.replace("_extracted", "")] = json.load(fh)
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"Warning: failed to load {f.name}: {e}")
 
     return result_text
 
@@ -606,8 +606,8 @@ with tab2:
                 try:
                     resp = sfn_client.get_activity_task(activityArn=ACTIVITY_ARN, workerName="demo-adjudicator")
                     task_token = resp.get("taskToken")
-                except Exception:
-                    pass
+                except Exception as e:
+                    print(f"Warning: failed to get activity task: {e}")
 
                 if task_token:
                     try:
@@ -616,8 +616,8 @@ with tab2:
                             output=json.dumps({"decision": decision, "notes": notes,
                                                "adjudicated_at": datetime.utcnow().isoformat() + "Z"}),
                         )
-                    except Exception:
-                        pass
+                    except Exception as e:
+                        print(f"Warning: failed to send task success: {e}")
 
                 # Update DynamoDB
                 try:
@@ -629,8 +629,8 @@ with tab2:
                             ":t": datetime.utcnow().isoformat() + "Z",
                         },
                     )
-                except Exception:
-                    pass
+                except Exception as e:
+                    print(f"Warning: failed to update DynamoDB: {e}")
 
                 st.success(f"\u2705 Decision: **{decision}**")
 
@@ -696,8 +696,8 @@ with tab3:
                                              height=80, disabled=True, key=f"s_{sid}_{id(rec)}")
                         else:
                             st.info("No summaries yet. LTM extraction is async \u2014 wait 30-60s and refresh.")
-                    except Exception:
-                        pass
+                    except Exception as e:
+                        print(f"Warning: failed to retrieve summaries: {e}")
                     try:
                         facts = memory_client.retrieve_memories(memory_id=DEMO_MEMORY_ID,
                             namespace="/facts/demo-intake-orchestrator/", query=f"claim {cid}")
@@ -706,5 +706,5 @@ with tab3:
                             st.markdown("**Extracted Facts:**")
                             for rec in f_list[:5]:
                                 st.text(f"  \u2022 {str(rec.get('content', rec.get('text', str(rec))))[:200]}")
-                    except Exception:
-                        pass
+                    except Exception as e:
+                        print(f"Warning: failed to retrieve facts: {e}")

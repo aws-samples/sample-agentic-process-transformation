@@ -31,7 +31,7 @@ def load_data():
     global DATA
     if DATA:
         return DATA
-    with open(MOCK_DATA_PATH) as f:
+    with open(MOCK_DATA_PATH, encoding="utf-8") as f:
         DATA = json.load(f)
     print(f"Loaded NOC mock data: {len(DATA.get('tickets', {}))} tickets, "
           f"{len(DATA.get('devices', {}))} devices", file=sys.stderr)
