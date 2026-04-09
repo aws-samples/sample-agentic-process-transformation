@@ -70,10 +70,10 @@ python3 -m venv venv
 source venv/bin/activate
 
 # For the orchestration patterns
-pip install -r agent-orchestration-patterns/requirements.txt
+pip install -r 00-agent-orchestration-patterns/requirements.txt
 
 # For the insurance claims workshop
-pip install -r insurance-claims-processing/requirements.txt
+pip install -r 01-insurance-claims-processing/requirements.txt
 
 jupyter lab
 ```
@@ -81,12 +81,12 @@ jupyter lab
 ## Project Structure
 
 ```
-├── agent-orchestration-patterns/
+├── 00-agent-orchestration-patterns/
 │   ├── agent-patterns/               # 6 individual agent patterns
 │   ├── agent-workflow-patterns/      # 4 multi-agent orchestration patterns
 │   └── common/                       # Shared MCP servers and sample data
 │
-├── insurance-claims-processing/
+├── 01-insurance-claims-processing/
 │   ├── agents/                       # 4 agent modules (factory pattern)
 │   ├── mcp_servers/socotra_mock/     # Mock policy administration system
 │   ├── notebooks/                    # Progressive workshop notebooks (00–05)
