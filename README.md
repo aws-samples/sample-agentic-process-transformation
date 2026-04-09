@@ -97,6 +97,7 @@ jupyter lab
 
 - [Strands Agents](https://github.com/strands-agents/strands-agents) — Agent framework with tool orchestration and graph-based workflows
 - [Amazon Bedrock](https://aws.amazon.com/bedrock/) — Managed LLM inference (Nova 2 Lite, Claude Sonnet 4)
+- [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) — Agent runtime with session isolation and persistent memory
 - [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) — Standardized tool integration over stdio JSON-RPC
 - [AWS Step Functions](https://aws.amazon.com/step-functions/) — Human-in-the-loop callback orchestration
 
