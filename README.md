@@ -1,6 +1,14 @@
 # Agentic Process Transformation
 
-Patterns, accelerators, and a hands-on workshop for building multi-agent workflows with [Strands Agents](https://github.com/strands-agents/strands-agents), Amazon Bedrock, and Model Context Protocol (MCP).
+Patterns, accelerators, and hands-on workshops for building reimagined business processes with multi-agent workflows using:
+- [Strands Agents](https://github.com/strands-agents/strands-agents)
+- Amazon Bedrock
+- Amazon Bedrock AgentCore
+- Model Context Protocol (MCP)
+
+[Get started here](#-getting-started--deploy-the-workshop-infrastructure)
+
+---
 
 ## What's Inside
 
@@ -54,30 +62,6 @@ A complete end-to-end example: a life insurance death benefit claims pipeline bu
 | `04_agent_core_integration/` | AgentCore Runtime (session isolation) and Memory (cross-phase context) |
 | `05_human_in_the_loop_integration/` | Step Functions callback pattern for human adjudication |
 
-## Prerequisites
-
-- Python 3.10+
-- AWS account with Bedrock model access enabled:
-  - Amazon Nova 2 Lite (`us.amazon.nova-2-lite-v1:0`)
-  - Claude Sonnet 4 (`us.anthropic.claude-sonnet-4-20250514-v1:0`)
-- AWS CLI configured with credentials
-- Region: `us-east-1`
-
-## Quick Start
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-
-# For the orchestration patterns
-pip install -r 00-agent-orchestration-patterns/requirements.txt
-
-# For the insurance claims workshop
-pip install -r 01-insurance-claims-processing/requirements.txt
-
-jupyter lab
-```
-
 ## Project Structure
 
 ```
@@ -100,6 +84,81 @@ jupyter lab
 - [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) — Agent runtime with session isolation and persistent memory
 - [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) — Standardized tool integration over stdio JSON-RPC
 - [AWS Step Functions](https://aws.amazon.com/step-functions/) — Human-in-the-loop callback orchestration
+
+---
+
+## ⚡ Getting Started — Deploy the Workshop Infrastructure
+
+### Prerequisites
+- An AWS account with [Amazon Bedrock model access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) enabled for:
+  - Amazon Nova 2 Lite (`us.amazon.nova-2-lite-v1:0`)
+  - Amazon Nova Multimodal Embeddings (`amazon.nova-2-multimodal-embeddings-v1:0`)
+  - Claude Sonnet 4 (`us.anthropic.claude-sonnet-4-20250514-v1:0`)
+- AWS CLI installed and configured with credentials
+- Python 3.10+
+
+### Step 1 — Deploy the CloudFormation stack
+
+This creates the S3 bucket, DynamoDB tables, IAM roles, and a SageMaker execution role with all required permissions.
+
+```bash
+aws cloudformation deploy \
+  --template-file cfn-workshop-setup.yaml \
+  --stack-name agentic-workshop \
+  --capabilities CAPABILITY_NAMED_IAM \
+  --region us-east-1
+```
+
+### Step 2 — Get the S3 bucket name from the stack outputs
+
+```bash
+aws cloudformation describe-stacks \
+  --stack-name agentic-workshop \
+  --region us-east-1 \
+  --query "Stacks[0].Outputs[?OutputKey=='S3BucketName'].OutputValue" \
+  --output text
+```
+
+### Step 3 — Upload sample claim documents to S3
+
+```bash
+aws s3 cp 01-insurance-claims-processing/sample_data/ \
+  s3://<YOUR_BUCKET_NAME>/claims-processing/claimant-data/ \
+  --recursive
+```
+
+Replace `<YOUR_BUCKET_NAME>` with the output from Step 2.
+
+### Step 4 — Set the bucket name as an environment variable
+
+```bash
+export WORKSHOP_S3_BUCKET=<YOUR_BUCKET_NAME>
+```
+
+### Step 5 — Install Python dependencies and start Jupyter
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+
+# For the orchestration patterns
+pip install -r 00-agent-orchestration-patterns/requirements.txt
+
+# For the insurance claims workshop
+pip install -r 01-insurance-claims-processing/requirements.txt
+
+jupyter lab
+```
+
+### Cleanup
+
+To delete all workshop resources when you're done:
+
+```bash
+aws cloudformation delete-stack --stack-name agentic-workshop --region us-east-1
+```
+
+> Note: The S3 bucket is retained on stack deletion to prevent accidental data loss. Delete it manually if needed: `aws s3 rb s3://<YOUR_BUCKET_NAME> --force`
 
 ## License
 

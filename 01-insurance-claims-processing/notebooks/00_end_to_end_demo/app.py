@@ -32,7 +32,7 @@ SOCOTRA_SERVER_SCRIPT = str(MCP_SERVER_PATH / "server.py")
 
 # ── AWS config (demo-namespaced) ──────────────────────────────────────────────
 REGION = "us-east-1"
-S3_BUCKET = "process-to-agent-032026"
+S3_BUCKET = os.environ.get("WORKSHOP_S3_BUCKET", "process-to-agent-032026")
 S3_SOURCE_PREFIX = "claims-processing/claimant-data/"
 DYNAMODB_TABLE = "demo-claims-metadata"
 
