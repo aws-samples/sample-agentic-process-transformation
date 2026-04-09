@@ -1,0 +1,80 @@
+{
+  "tickets": {
+    "TKT-4001": {
+      "ticket_id": "TKT-4001",
+      "title": "Intermittent connectivity at downtown cell tower",
+      "status": "open",
+      "priority": "high",
+      "device_id": "TOWER-DT-07",
+      "reported_by": "Field Tech Maria Chen",
+      "created_at": "2026-04-01T08:30:00Z",
+      "description": "Customers reporting dropped calls and slow data in the downtown core area. Tower TOWER-DT-07 showing intermittent packet loss."
+    },
+    "TKT-4002": {
+      "ticket_id": "TKT-4002",
+      "title": "Fiber cut on north ring",
+      "status": "in_progress",
+      "priority": "critical",
+      "device_id": "FIBER-NR-12",
+      "reported_by": "NOC Auto-Alert",
+      "created_at": "2026-04-02T14:15:00Z",
+      "description": "Fiber optic cable cut detected on north ring segment 12. Redundant path active but capacity reduced by 50%."
+    },
+    "TKT-4003": {
+      "ticket_id": "TKT-4003",
+      "title": "Routine maintenance — south hub firmware update",
+      "status": "scheduled",
+      "priority": "low",
+      "device_id": "HUB-S-03",
+      "reported_by": "Maintenance Scheduler",
+      "created_at": "2026-04-03T09:00:00Z",
+      "description": "Scheduled firmware update for south hub router HUB-S-03. Maintenance window: 2026-04-10 02:00-04:00 UTC."
+    }
+  },
+  "devices": {
+    "TOWER-DT-07": {
+      "device_id": "TOWER-DT-07",
+      "type": "cell_tower",
+      "location": "Downtown Core, 5th & Main",
+      "status": "degraded",
+      "uptime_hours": 1847,
+      "last_restart": "2026-01-15T03:00:00Z",
+      "firmware": "v4.2.1"
+    },
+    "FIBER-NR-12": {
+      "device_id": "FIBER-NR-12",
+      "type": "fiber_segment",
+      "location": "North Ring, Segment 12",
+      "status": "partial_outage",
+      "uptime_hours": 0,
+      "last_restart": "2026-04-02T14:15:00Z",
+      "firmware": "n/a"
+    },
+    "HUB-S-03": {
+      "device_id": "HUB-S-03",
+      "type": "hub_router",
+      "location": "South Hub Data Center",
+      "status": "healthy",
+      "uptime_hours": 4320,
+      "last_restart": "2025-10-01T02:00:00Z",
+      "firmware": "v3.8.5"
+    }
+  },
+  "diagnostics": {
+    "TOWER-DT-07": {
+      "ping": {"latency_ms": 145, "packet_loss_pct": 12.5, "status": "degraded"},
+      "throughput": {"download_mbps": 45, "upload_mbps": 12, "status": "below_threshold"},
+      "signal": {"rssi_dbm": -78, "sinr_db": 8, "status": "marginal"}
+    },
+    "FIBER-NR-12": {
+      "ping": {"latency_ms": 999, "packet_loss_pct": 100, "status": "unreachable"},
+      "throughput": {"download_mbps": 0, "upload_mbps": 0, "status": "down"},
+      "signal": {"rssi_dbm": null, "sinr_db": null, "status": "n/a"}
+    },
+    "HUB-S-03": {
+      "ping": {"latency_ms": 2, "packet_loss_pct": 0, "status": "healthy"},
+      "throughput": {"download_mbps": 950, "upload_mbps": 920, "status": "optimal"},
+      "signal": {"rssi_dbm": null, "sinr_db": null, "status": "n/a"}
+    }
+  }
+}

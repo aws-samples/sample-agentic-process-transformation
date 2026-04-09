@@ -1,0 +1,21 @@
+# Agent Orchestration Patterns — Python Dependencies
+
+# Strands Agents Framework
+strands-agents
+strands-agents-tools
+
+# AWS SDK
+boto3>=1.34.0
+
+# Typing support
+typing_extensions>=4.12.0
+
+# MCP Python SDK (02b_tool_agent_mcp)
+mcp>=0.1.0
+
+# Bedrock AgentCore (04_memory_augmented_agent)
+bedrock-agentcore
+
+# RAG pattern (01_rag_agent)
+chromadb
+pypdf

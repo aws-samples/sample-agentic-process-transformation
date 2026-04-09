@@ -1,0 +1,1 @@
+"""Socotra Mock MCP Server"""

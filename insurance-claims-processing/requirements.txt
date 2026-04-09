@@ -1,0 +1,51 @@
+# P2A Insurance Claims Processing Workshop - Python Dependencies
+
+# AWS SDK
+boto3>=1.34.0
+botocore>=1.34.0
+
+# Typing support (Sentinel requires >=4.10)
+typing_extensions>=4.12.0
+
+# Configuration
+pyyaml>=6.0
+
+# Bedrock AgentCore Runtime & Memory
+# Note: Install from wheel or pip when available
+# For now, use boto3 bedrock-agent-runtime client
+
+# Strands Agents Framework
+# Note: Install from provided wheel or internal repository
+strands-agents
+strands-agents-tools
+
+# MCP Python SDK (MIT License)
+mcp>=0.1.0
+
+# Data Processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Streamlit UI
+streamlit>=1.28.0
+requests>=2.31.0
+
+# Evaluation & Metrics
+scikit-learn>=1.3.0
+
+# Logging & Monitoring
+python-json-logger>=2.0.0
+
+# Testing (optional, for evaluation notebooks)
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+
+# Jupyter Notebook Support
+jupyter>=1.0.0
+ipykernel>=6.25.0
+ipywidgets>=8.1.0
+
+# Development Tools (optional)
+black>=23.0.0
+flake8>=6.1.0
+mypy>=1.5.0

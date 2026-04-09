@@ -1,0 +1,266 @@
+{
+  "policies": [
+    {
+      "policy_number": "WL-4582-1093",
+      "policy_type": "whole_life",
+      "plan": "Whole Life Insurance",
+      "status": "active",
+      "issue_date": "2005-10-01",
+      "paid_to_date": "2026-10-01",
+      "premium_status": "paid_current",
+      "face_amount": 250000.00,
+      "annual_premium": 5600.00,
+      "premium_mode": "Annual",
+      "death_benefit": 250000.00,
+      "insured_owner": {
+        "name": "John Doe",
+        "date_of_birth": "1942-05-04",
+        "ssn_masked": "[US_SOCIAL_SECURITY_NUMBER]",
+        "address": "1234 W Maple Ave, Chicago, IL 60614",
+        "phone": "(312) 555-0142",
+        "email": "john.doe@example.com"
+      },
+      "beneficiary_designation": {
+        "primary_beneficiary": "Lisa Doe",
+        "relationship": "Granddaughter (only living descendant)",
+        "benefit_percent": 100,
+        "beneficiary_address": "8800 N Sheridan Rd Apt 12B, Chicago, IL 60660",
+        "beneficiary_phone": "(773) 555-0199",
+        "beneficiary_email": "lisa.doe@example.com"
+      },
+      "beneficiaries": [
+        {
+          "name": "Lisa Doe",
+          "relationship": "granddaughter",
+          "percentage": 100,
+          "dob": "1996-09-22",
+          "id_number": "D123-4567-8901",
+          "id_issuing_state": "Illinois",
+          "id_expiration": "2027-04-10",
+          "contact": {
+            "email": "lisa.doe@example.com",
+            "phone": "(773) 555-0199",
+            "address": "8800 N Sheridan Rd Apt 12B, Chicago, IL 60660"
+          }
+        }
+      ],
+      "policy_values": {
+        "as_of_date": "2025-12-31",
+        "cash_surrender_value": 84250.00,
+        "outstanding_policy_loan": 0.00,
+        "net_death_benefit_estimated": 250000.00
+      },
+      "customer_service": {
+        "carrier_name": "Acme Life Insurance Company (Sample)",
+        "carrier_address": "P.O. Box 1000, Chicago, IL 60601",
+        "carrier_phone": "(800) 555-0100",
+        "claims_email": "claims@acmelife.example"
+      },
+      "exclusions": [
+        "suicide_within_2_years",
+        "war_or_terrorism",
+        "aviation_non_commercial"
+      ],
+      "death_record": {
+        "date_of_death": "2026-01-15",
+        "time": "08:42",
+        "place_of_death": "Residence",
+        "location": "1234 W Maple Ave, Chicago, IL 60614",
+        "city_co_st": "Chicago / Cook / IL",
+        "manner": "Natural",
+        "autopsy": "No",
+        "in_hospice": "No",
+        "immediate_cause_a": "Congestive heart failure",
+        "due_to_b": "Ischemic cardiomyopathy",
+        "due_to_c": "Coronary artery disease",
+        "other_conditions": "Hypertension; Type 2 diabetes mellitus",
+        "certifying_physician": "Michael R. Patel, MD (Sample)",
+        "date_signed": "2026-01-16",
+        "state_file_no": "IL-2026-000178",
+        "certificate_no": "000178",
+        "county": "Cook",
+        "date_filed": "2026-01-20"
+      },
+      "police_record": {
+        "agency_name": "Metro City Police Department",
+        "ori": "MCPD001",
+        "case_no": "MC-26-0115-0421",
+        "report_date": "2026-01-15",
+        "incident_type": "Death Investigation - Unattended",
+        "disposition": "Closed - No foul play suspected",
+        "call_type": "Welfare Check",
+        "reporting_officer": "Officer A. Reynolds #5142",
+        "supervisor": "Sgt. K. Alvarez #308",
+        "narrative": "Officers responded to welfare check. Decedent found unresponsive in bedroom. No signs of forced entry or struggle. EMS confirmed death on scene. Medical Examiner notified. Classified as unattended death, no foul play suspected."
+      },
+      "medical_context": {
+        "mrn": "LMC-0045127",
+        "primary_care_provider": "Dr. Sarah K. Nguyen",
+        "npi": "1234567890",
+        "active_conditions": [
+          "Congestive heart failure (CHF), NYHA class II-III",
+          "Ischemic cardiomyopathy / Coronary artery disease",
+          "Hypertension",
+          "Type 2 diabetes mellitus",
+          "Hyperlipidemia",
+          "Chronic kidney disease, stage 3a"
+        ],
+        "last_encounter_date": "2025-12-10",
+        "last_encounter_type": "Cardiology Follow-Up",
+        "last_encounter_location": "Lakeview Medical Center"
+      },
+      "will_reference": {
+        "executor": "Lisa Doe",
+        "policy_numbers_in_will": ["WL-4582-1093"],
+        "instruction": "Life insurance proceeds paid directly to named beneficiaries outside the will",
+        "date_signed": "2018-06-12",
+        "governing_law": "Illinois",
+        "notary_public": "Angela M. Martinez",
+        "notarized_date": "2018-06-12"
+      },
+      "trust_reference": {
+        "trust_name": "The John Doe Revocable Living Trust",
+        "agreement_date": "2012-09-20",
+        "grantor": "John Doe",
+        "initial_trustee": "John Doe",
+        "successor_trustee": "Lisa Doe",
+        "successor_relationship": "granddaughter",
+        "remainder_beneficiary": "Lisa Doe",
+        "remainder_percent": 100,
+        "notary_public": "Angela M. Martinez",
+        "notarized_date": "2012-09-20"
+      },
+      "beneficiary_id_reference": {
+        "issuing_state": "Illinois",
+        "document_type": "Driver License / ID",
+        "last_name": "Doe",
+        "first_name": "Lisa",
+        "dob": "1996-09-22",
+        "sex": "F",
+        "eyes": "BRN",
+        "ht": "5-06",
+        "wt": 140,
+        "dl_id_number": "D123-4567-8901",
+        "iss": "2023-04-10",
+        "exp": "2027-04-10",
+        "address": "8800 N Sheridan Rd Apt 12B, Chicago, IL 60660"
+      }
+    },
+    {
+      "policy_number": "POL-WL-2024-001",
+      "policy_type": "whole_life",
+      "plan": "Whole Life Insurance",
+      "status": "active",
+      "issue_date": "2020-01-15",
+      "paid_to_date": "2026-01-15",
+      "premium_status": "paid_current",
+      "face_amount": 500000.00,
+      "annual_premium": 8400.00,
+      "premium_mode": "Annual",
+      "death_benefit": 500000.00,
+      "insured_owner": {
+        "name": "John Michael Smith",
+        "date_of_birth": "1965-03-22",
+        "ssn_masked": "[US_SOCIAL_SECURITY_NUMBER]",
+        "address": "123 Main St, Springfield, IL 62701",
+        "phone": "+1-555-0100",
+        "email": "john.smith@example.com"
+      },
+      "beneficiary_designation": {
+        "primary_beneficiary": "Sarah Jane Smith",
+        "relationship": "spouse",
+        "benefit_percent": 100,
+        "beneficiary_address": "123 Main St, Springfield, IL 62701",
+        "beneficiary_phone": "+1-555-0123",
+        "beneficiary_email": "sarah.smith@example.com"
+      },
+      "beneficiaries": [
+        {
+          "name": "Sarah Jane Smith",
+          "relationship": "spouse",
+          "percentage": 100,
+          "contact": {
+            "email": "sarah.smith@example.com",
+            "phone": "+1-555-0123",
+            "address": "123 Main St, Springfield, IL 62701"
+          }
+        }
+      ],
+      "policy_values": {
+        "as_of_date": "2025-12-31",
+        "cash_surrender_value": 62000.00,
+        "outstanding_policy_loan": 0.00,
+        "net_death_benefit_estimated": 500000.00
+      },
+      "customer_service": {
+        "carrier_name": "Acme Life Insurance Company (Sample)",
+        "carrier_address": "P.O. Box 1000, Chicago, IL 60601",
+        "carrier_phone": "(800) 555-0100",
+        "claims_email": "claims@acmelife.example"
+      },
+      "exclusions": [
+        "suicide_within_2_years",
+        "war_or_terrorism",
+        "aviation_non_commercial"
+      ]
+    },
+    {
+      "policy_number": "POL-WL-2023-042",
+      "policy_type": "whole_life",
+      "plan": "Whole Life Insurance",
+      "status": "lapsed",
+      "issue_date": "2019-06-10",
+      "lapse_date": "2023-08-15",
+      "paid_to_date": "2023-08-15",
+      "premium_status": "lapsed",
+      "face_amount": 250000.00,
+      "annual_premium": 4200.00,
+      "premium_mode": "Annual",
+      "death_benefit": 250000.00,
+      "insured_owner": {
+        "name": "Robert James Wilson",
+        "date_of_birth": "1970-11-05",
+        "ssn_masked": "[US_SOCIAL_SECURITY_NUMBER]",
+        "address": "456 Oak Ave, Portland, OR 97201",
+        "phone": "+1-555-0456",
+        "email": "robert.wilson@example.com"
+      },
+      "beneficiary_designation": {
+        "primary_beneficiary": "Emily Wilson",
+        "relationship": "daughter",
+        "benefit_percent": 100,
+        "beneficiary_address": "456 Oak Ave, Portland, OR 97201",
+        "beneficiary_phone": "+1-555-0456",
+        "beneficiary_email": "emily.wilson@example.com"
+      },
+      "beneficiaries": [
+        {
+          "name": "Emily Wilson",
+          "relationship": "daughter",
+          "percentage": 100,
+          "contact": {
+            "email": "emily.wilson@example.com",
+            "phone": "+1-555-0456",
+            "address": "456 Oak Ave, Portland, OR 97201"
+          }
+        }
+      ],
+      "policy_values": {
+        "as_of_date": "2023-08-15",
+        "cash_surrender_value": 18500.00,
+        "outstanding_policy_loan": 0.00,
+        "net_death_benefit_estimated": 0.00
+      },
+      "customer_service": {
+        "carrier_name": "Acme Life Insurance Company (Sample)",
+        "carrier_address": "P.O. Box 1000, Chicago, IL 60601",
+        "carrier_phone": "(800) 555-0100",
+        "claims_email": "claims@acmelife.example"
+      },
+      "exclusions": [
+        "suicide_within_2_years"
+      ]
+    }
+  ]
+}
+
