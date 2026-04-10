@@ -1,3 +1,6 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
 """Extractor Agent — Shared Module
 
 Factory function that returns a configured Extractor Agent instance.

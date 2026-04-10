@@ -16,7 +16,7 @@ This repo has two main sections:
 
 ### Agent Orchestration Patterns
 
-A reusable pattern library for building individual agents and orchestrating them together. Each pattern is a self-contained Jupyter notebook that runs in SageMaker AI Studio.
+A reusable pattern library for building individual agents and orchestrating them together. Each pattern is a self-contained Jupyter notebook that runs in Amazon SageMaker AI Studio.
 
 **Agent Patterns** — how to build individual agents:
 
@@ -46,21 +46,21 @@ A complete end-to-end example: a life insurance death benefit claims pipeline bu
 
 | Agent | Model | Role |
 |---|---|---|
-| Authenticator | Nova 2 Lite | Validates beneficiary identity and coverage via MCP |
-| Extractor | Nova 2 Lite | Extracts structured JSON from 7 document types |
-| Policy Verification | Claude Sonnet 4 | Cross-document consistency checks against policy terms |
-| Communicator | Nova 2 Lite | Drafts claim decision notifications |
+| Authenticator | Amazon Nova 2 Lite | Validates beneficiary identity and coverage via MCP |
+| Extractor | Amazon Nova 2 Lite | Extracts structured JSON from 7 document types |
+| Policy Verification | Anthropic Claude Sonnet 4 | Cross-document consistency checks against policy terms |
+| Communicator | Amazon Nova 2 Lite | Drafts claim decision notifications |
 
 **Notebook sequence:**
 
 | Notebook | What You Build |
 |---|---|
 | `00_end_to_end_demo/` | Interactive Streamlit app showing the full pipeline — run this first |
-| `01_a_simple_agent/` | A simple Authenticator Agent with Nova 2 Lite reasoning |
+| `01_a_simple_agent/` | A simple Authenticator Agent with Amazon Nova 2 Lite reasoning |
 | `02_tool_augmented_agents/` | Stub tools → MCP integration, document extraction with JSON schema |
 | `03_multi_agent_orchestration/` | Intake Orchestrator with GraphBuilder, end-to-end pipeline |
-| `04_agent_core_integration/` | AgentCore Runtime (session isolation) and Memory (cross-phase context) |
-| `05_human_in_the_loop_integration/` | Step Functions callback pattern for human adjudication |
+| `04_agent_core_integration/` | Amazon Bedrock AgentCore Runtime (session isolation) and Memory (cross-phase context) |
+| `05_human_in_the_loop_integration/` | AWS Step Functions callback pattern for human adjudication |
 
 ## Project Structure
 
@@ -80,7 +80,7 @@ A complete end-to-end example: a life insurance death benefit claims pipeline bu
 ## Key Technologies
 
 - [Strands Agents](https://github.com/strands-agents/strands-agents) — Agent framework with tool orchestration and graph-based workflows
-- [Amazon Bedrock](https://aws.amazon.com/bedrock/) — Managed LLM inference (Nova 2 Lite, Claude Sonnet 4)
+- [Amazon Bedrock](https://aws.amazon.com/bedrock/) — Managed LLM inference (Amazon Nova 2 Lite, Anthropic Claude Sonnet 4)
 - [Amazon Bedrock AgentCore](https://aws.amazon.com/bedrock/agentcore/) — Agent runtime with session isolation and persistent memory
 - [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) — Standardized tool integration over stdio JSON-RPC
 - [AWS Step Functions](https://aws.amazon.com/step-functions/) — Human-in-the-loop callback orchestration
@@ -93,13 +93,13 @@ A complete end-to-end example: a life insurance death benefit claims pipeline bu
 - An AWS account with [Amazon Bedrock model access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) enabled for:
   - Amazon Nova 2 Lite (`us.amazon.nova-2-lite-v1:0`)
   - Amazon Nova Multimodal Embeddings (`amazon.nova-2-multimodal-embeddings-v1:0`)
-  - Claude Sonnet 4 (`us.anthropic.claude-sonnet-4-20250514-v1:0`)
+  - Anthropic Claude Sonnet 4 (`us.anthropic.claude-sonnet-4-20250514-v1:0`)
 - AWS CLI installed and configured with credentials
 - Python 3.10+
 
 ### Step 1 — Deploy the CloudFormation stack
 
-This creates the S3 bucket, DynamoDB tables, IAM roles, and a SageMaker execution role with all required permissions.
+This creates the Amazon S3 bucket, Amazon DynamoDB tables, IAM roles, and an Amazon SageMaker execution role with all required permissions.
 
 ```bash
 aws cloudformation deploy \
@@ -160,6 +160,12 @@ aws cloudformation delete-stack --stack-name agentic-workshop --region us-east-1
 
 > Note: The S3 bucket is retained on stack deletion to prevent accidental data loss. Delete it manually if needed: `aws s3 rb s3://<YOUR_BUCKET_NAME> --force`
 
+## Important Notices
+
+> **Synthetic data only.** All sample documents (PDFs, JSON mock data) in this repository are entirely fictional and generated for educational purposes. No real personally identifiable information (PII), protected health information (PHI), or financial data is included.
+
+> **Not for production use.** This workshop demonstrates agentic patterns for learning purposes. The automated claim adjudication shown here requires human-in-the-loop review for any production deployment involving financial decisions.
+
 ## License
 
-This project is provided for educational purposes.
+This library is licensed under the MIT-0 License. See the [LICENSE](LICENSE) file.
