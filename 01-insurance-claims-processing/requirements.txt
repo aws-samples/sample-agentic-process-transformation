@@ -16,7 +16,7 @@ pyyaml>=6.0
 
 # Strands Agents Framework
 # Note: Install from provided wheel or internal repository
-strands-agents
+strands-agents>=1.34.0
 strands-agents-tools
 
 # MCP Python SDK (MIT License)
