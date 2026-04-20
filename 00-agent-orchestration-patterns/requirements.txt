@@ -14,7 +14,7 @@ typing_extensions>=4.12.0
 mcp>=0.1.0
 
 # Bedrock AgentCore (04_memory_augmented_agent)
-bedrock-agentcore
+bedrock-agentcore>=1.6.0
 
 # RAG pattern (01_rag_agent)
 chromadb
