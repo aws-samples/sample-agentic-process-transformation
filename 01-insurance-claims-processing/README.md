@@ -6,6 +6,20 @@ Multi-agent orchestration workshop for life insurance death benefit claims proce
 
 This workshop walks through building an agentic workflow where specialized agents handle identity verification, document extraction, policy verification, adjudication, and beneficiary communication. You start with a simple reasoning agent and progressively add tools, MCP integration, multi-agent orchestration, persistent memory, and human-in-the-loop escalation.
 
+## Process Transformation
+
+### As-Is: Traditional Claims Processing
+
+The traditional life insurance claims process is manual, sequential, and slow — involving customer service representatives, back-office teams, physical document handling, and multi-week turnaround times.
+
+![Claims As-Is Process](images/claims-as-is.png)
+
+### To-Be: Reimagined with Agents
+
+The agentic workflow replaces manual handoffs with specialized AI agents that authenticate, extract, verify, and adjudicate in real time — with human review only where governance requires it.
+
+![Claims To-Be Process](images/claims-to-be.png)
+
 ## Architecture
 
 The pipeline runs in three phases:
