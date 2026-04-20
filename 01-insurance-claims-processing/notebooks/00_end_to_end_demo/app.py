@@ -218,7 +218,7 @@ def adjudicate_claim(claim_id: str, verification_summary: str, auth_summary: str
         adj = {"decision": "APPROVED", "rationale": "All checks passed. No flags detected.", "flags": []}
         _pipeline_trace["adjudication"] = adj
         return json.dumps({"claim_id": claim_id, "adjudication_decision": "APPROVED",
-                           "rationale": adj["rationale"], "adjudicated_at": datetime.now(datetime.UTC).isoformat() + "Z"})
+                           "rationale": adj["rationale"], "adjudicated_at": datetime.now(datetime.timezone.utc).isoformat() + "Z"})
 
     # Escalate
     adj = {"decision": "ESCALATED", "rationale": f"Flags: {', '.join(flags)}. Requires human review.", "flags": flags}
@@ -231,7 +231,7 @@ def adjudicate_claim(claim_id: str, verification_summary: str, auth_summary: str
             stateMachineArn=STATE_MACHINE_ARN,
             name=f"demo-{claim_id}-{uuid.uuid4().hex[:8]}",
             input=json.dumps({"claim_id": claim_id, "claim_summary": claim_summary,
-                              "flags": json.dumps(flags), "submitted_at": datetime.now(datetime.UTC).isoformat() + "Z"}),
+                              "flags": json.dumps(flags), "submitted_at": datetime.now(datetime.timezone.utc).isoformat() + "Z"}),
         )
         _pipeline_trace["escalation_arn"] = execution["executionArn"]
     except Exception as e:
@@ -299,7 +299,7 @@ def persist_claim_to_dynamodb(
         "adjudication_decision": adjudication_decision,
         "adjudication_notes": adjudication_notes,
         "notification_status": notification_status,
-        "stage": stage, "created_at": datetime.now(datetime.UTC).isoformat() + "Z",
+        "stage": stage, "created_at": datetime.now(datetime.timezone.utc).isoformat() + "Z",
     }
     try:
         table = dynamodb.create_table(
@@ -617,7 +617,7 @@ with tab2:
                         sfn_client.send_task_success(
                             taskToken=task_token,
                             output=json.dumps({"decision": decision, "notes": notes,
-                                               "adjudicated_at": datetime.now(datetime.UTC).isoformat() + "Z"}),
+                                               "adjudicated_at": datetime.now(datetime.timezone.utc).isoformat() + "Z"}),
                         )
                     except Exception as e:
                         print(f"Warning: failed to send task success: {e}")
@@ -629,7 +629,7 @@ with tab2:
                         UpdateExpression="SET stage = :s, adjudication_decision = :d, adjudication_notes = :n, adjudicated_at = :t",
                         ExpressionAttributeValues={
                             ":s": "adjudicated", ":d": decision, ":n": notes,
-                            ":t": datetime.now(datetime.UTC).isoformat() + "Z",
+                            ":t": datetime.now(datetime.timezone.utc).isoformat() + "Z",
                         },
                     )
                 except Exception as e:
