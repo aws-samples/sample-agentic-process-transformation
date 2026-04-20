@@ -210,16 +210,8 @@ Resources:
             Statement:
               - Effect: Allow
                 Action:
-                  - bedrock:CreateMemory
-                  - bedrock:GetMemory
-                  - bedrock:ListMemories
-                  - bedrock:DeleteMemory
-                  - bedrock:CreateSession
-                  - bedrock:ListEvents
-                  - bedrock:RetrieveMemories
-                  - bedrock:InvokeInlineAgent
-                Resource:
-                  - !Sub 'arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:memory/*'
+                  - bedrock-agentcore:*
+                Resource: '*'
 
         # ── S3: read claim documents ──
         - PolicyName: s3-read-claim-documents
@@ -274,6 +266,7 @@ Resources:
                   - !Sub 'arn:aws:states:${AWS::Region}:${AWS::AccountId}:stateMachine:claims-hitl-*'
                   - !Sub 'arn:aws:states:${AWS::Region}:${AWS::AccountId}:stateMachine:demo-claims-hitl-*'
                   - !Sub 'arn:aws:states:${AWS::Region}:${AWS::AccountId}:activity:demo-claims-*'
+                  - !Sub 'arn:aws:states:${AWS::Region}:${AWS::AccountId}:activity:claims-*'
                   - !Sub 'arn:aws:states:${AWS::Region}:${AWS::AccountId}:execution:*:*'
 
         # ── IAM: manage Step Functions execution roles ──
