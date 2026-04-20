@@ -36,6 +36,16 @@ SOCOTRA_SERVER_SCRIPT = str(MCP_SERVER_PATH / "server.py")
 # ── AWS config (demo-namespaced) ──────────────────────────────────────────────
 REGION = "us-east-1"
 S3_BUCKET = os.environ.get("WORKSHOP_S3_BUCKET", "")
+if not S3_BUCKET:
+    # Auto-detect: find the workshop bucket by naming convention
+    try:
+        _buckets = s3_client.list_buckets().get("Buckets", [])
+        for _b in _buckets:
+            if _b["Name"].startswith("agentic-workshop-"):
+                S3_BUCKET = _b["Name"]
+                break
+    except Exception:
+        pass
 S3_SOURCE_PREFIX = "claims-processing/claimant-data/"
 DYNAMODB_TABLE = "demo-claims-metadata"
 
