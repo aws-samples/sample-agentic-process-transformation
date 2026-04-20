@@ -95,24 +95,6 @@ Resources:
         - Key: Project
           Value: agentic-process-transformation
 
-  P2AClaimsMetadataTable:
-    Type: AWS::DynamoDB::Table
-    DeletionPolicy: Delete
-    Properties:
-      TableName: p2a-claims-metadata
-      BillingMode: PAY_PER_REQUEST
-      AttributeDefinitions:
-        - AttributeName: claim_id
-          AttributeType: S
-      KeySchema:
-        - AttributeName: claim_id
-          KeyType: HASH
-      SSESpecification:
-        SSEEnabled: true
-      Tags:
-        - Key: Project
-          Value: agentic-process-transformation
-
   # ── IAM Role for Step Functions (HITL) ─────────────────────────────────────
   StepFunctionsHITLRole:
     Type: AWS::IAM::Role
@@ -246,7 +228,6 @@ Resources:
                 Resource:
                   - !GetAtt ClaimsMetadataTable.Arn
                   - !GetAtt DemoClaimsMetadataTable.Arn
-                  - !GetAtt P2AClaimsMetadataTable.Arn
 
         # ── Step Functions: HITL orchestration ──
         - PolicyName: step-functions-hitl
@@ -262,6 +243,9 @@ Resources:
                   - states:SendTaskSuccess
                   - states:CreateActivity
                   - states:GetActivityTask
+                  - states:ListExecutions
+                  - states:DescribeExecution
+                  - states:DeleteActivity
                 Resource:
                   - !Sub 'arn:aws:states:${AWS::Region}:${AWS::AccountId}:stateMachine:claims-hitl-*'
                   - !Sub 'arn:aws:states:${AWS::Region}:${AWS::AccountId}:stateMachine:demo-claims-hitl-*'

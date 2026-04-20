@@ -1,4 +1,4 @@
-# P2A Insurance Claims Processing Workshop - Python Dependencies
+# Insurance Claims Processing Workshop - Python Dependencies
 
 # AWS SDK
 boto3>=1.34.0
