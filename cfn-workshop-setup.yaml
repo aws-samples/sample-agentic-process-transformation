@@ -240,6 +240,7 @@ Resources:
                   - states:DescribeStateMachine
                   - states:DeleteStateMachine
                   - states:StartExecution
+                  - states:StopExecution
                   - states:SendTaskSuccess
                   - states:CreateActivity
                   - states:GetActivityTask
