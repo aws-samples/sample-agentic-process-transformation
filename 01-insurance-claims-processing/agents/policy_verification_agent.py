@@ -26,6 +26,8 @@ from mcp import stdio_client, StdioServerParameters
 # ── Model configuration ───────────────────────────────────────────────────────────────────────────────────────
 # Claude 4 Sonnet for complex policy reasoning — same as 02_tool_enabled_agents/03_multi_tool_mcp.ipynb.
 MODEL_ID = "us.anthropic.claude-sonnet-4-6"
+import boto3
+
 REGION = boto3.session.Session().region_name or "us-east-1"
 
 # ── System prompt — identical to 02_tool_enabled_agents/03_multi_tool_mcp.ipynb. POLICY_VERIFICATION_SYSTEM_PROMPT ──────

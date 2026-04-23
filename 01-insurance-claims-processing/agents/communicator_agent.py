@@ -20,6 +20,8 @@ from strands.models import BedrockModel
 
 # ── Model configuration ──────────────────────────────────────────────────────
 MODEL_ID = "us.amazon.nova-2-lite-v1:0"
+import boto3
+
 REGION = boto3.session.Session().region_name or "us-east-1"
 
 # ── System prompt ─────────────────────────────────────────────────────────────
