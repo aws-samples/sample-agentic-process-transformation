@@ -26,7 +26,7 @@ from mcp import stdio_client, StdioServerParameters
 # ── Model configuration ──────────────────────────────────────────────────────
 # Nova 2 Lite with reasoning enabled — same as NB01
 MODEL_ID = "us.amazon.nova-2-lite-v1:0"
-REGION = "us-east-1"
+REGION = boto3.session.Session().region_name or "us-east-1"
 
 # ── System prompt — identical to 02_tool_enabled_agents/01_single_tool_mcp.ipynb (Part B — MCP version) ─────────
 AUTHENTICATOR_SYSTEM_PROMPT = """You are the Authenticator Agent for Insurance Claims Processing.

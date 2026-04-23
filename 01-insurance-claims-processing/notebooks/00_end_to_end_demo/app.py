@@ -34,7 +34,7 @@ MOCK_DATA_PATH = MCP_SERVER_PATH / "mock_data.json"
 SOCOTRA_SERVER_SCRIPT = str(MCP_SERVER_PATH / "server.py")
 
 # ── AWS config (demo-namespaced) ──────────────────────────────────────────────
-REGION = "us-east-1"
+REGION = boto3.session.Session().region_name or "us-east-1"
 S3_BUCKET = os.environ.get("WORKSHOP_S3_BUCKET", "")
 if not S3_BUCKET:
     # Auto-detect: find the workshop bucket by naming convention

@@ -23,7 +23,7 @@ from strands.models import BedrockModel
 
 # ── Model configuration ──────────────────────────────────────────────────────
 MODEL_ID = "us.amazon.nova-2-lite-v1:0"
-REGION = "us-east-1"
+REGION = boto3.session.Session().region_name or "us-east-1"
 
 # ── Bedrock Runtime client — used inside extraction helper ────────────────────
 _bedrock_runtime = boto3.client("bedrock-runtime", region_name=REGION)

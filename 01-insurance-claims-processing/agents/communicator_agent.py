@@ -20,7 +20,7 @@ from strands.models import BedrockModel
 
 # ── Model configuration ──────────────────────────────────────────────────────
 MODEL_ID = "us.amazon.nova-2-lite-v1:0"
-REGION = "us-east-1"
+REGION = boto3.session.Session().region_name or "us-east-1"
 
 # ── System prompt ─────────────────────────────────────────────────────────────
 COMMUNICATOR_SYSTEM_PROMPT = """You are the Communicator Agent for Insurance Claims Processing.
