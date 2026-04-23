@@ -85,6 +85,12 @@ A complete end-to-end example: a life insurance death benefit claims pipeline bu
 - [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) — Standardized tool integration over stdio JSON-RPC
 - [AWS Step Functions](https://aws.amazon.com/step-functions/) — Human-in-the-loop callback orchestration
 
+## Target Audience
+
+- Solutions Architects designing agentic workflows for business process transformation
+- Software Developers and ML Engineers building agent-based systems
+- Technical Leads evaluating agentic patterns for process automation
+
 ---
 
 ## ⚡ Getting Started — Deploy the Workshop Infrastructure
