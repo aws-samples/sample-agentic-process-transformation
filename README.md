@@ -161,10 +161,12 @@ jupyter lab
 To delete all workshop resources when you're done:
 
 ```bash
-aws cloudformation delete-stack --stack-name agentic-workshop --region us-east-1
+bash cleanup.sh
 ```
 
-> Note: The S3 bucket is retained on stack deletion to prevent accidental data loss. Delete it manually if needed: `aws s3 rb s3://<YOUR_BUCKET_NAME> --force`
+This script empties the S3 bucket (including versioned objects), stops running Step Functions executions, deletes AgentCore memories, cleans up IAM roles, deletes the CloudFormation stack, and removes the retained S3 bucket.
+
+> Note: If you prefer manual cleanup, delete the stack with `aws cloudformation delete-stack --stack-name agentic-workshop --region us-east-1`, then manually delete the S3 bucket: `aws s3 rb s3://<YOUR_BUCKET_NAME> --force`
 
 ## Important Notices
 
