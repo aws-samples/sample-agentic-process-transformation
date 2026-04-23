@@ -48,7 +48,7 @@ A complete end-to-end example: a life insurance death benefit claims pipeline bu
 |---|---|---|
 | Authenticator | Amazon Nova 2 Lite | Validates beneficiary identity and coverage via MCP |
 | Extractor | Amazon Nova 2 Lite | Extracts structured JSON from 7 document types |
-| Policy Verification | Anthropic Claude Sonnet 4 | Cross-document consistency checks against policy terms |
+| Policy Verification | Anthropic Claude Sonnet 4.6 | Cross-document consistency checks against policy terms |
 | Communicator | Amazon Nova 2 Lite | Drafts claim decision notifications |
 
 **Notebook sequence:**
@@ -99,7 +99,7 @@ A complete end-to-end example: a life insurance death benefit claims pipeline bu
 - An AWS account with [Amazon Bedrock model access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html) enabled for:
   - Amazon Nova 2 Lite (`us.amazon.nova-2-lite-v1:0`)
   - Amazon Nova Multimodal Embeddings (`amazon.nova-2-multimodal-embeddings-v1:0`)
-  - Anthropic Claude Sonnet 4 (`us.anthropic.claude-sonnet-4-20250514-v1:0`)
+  - Anthropic Claude Sonnet 4.6 (`us.anthropic.claude-sonnet-4-6`)
 - AWS CLI installed and configured with credentials
 - Python 3.10+
 

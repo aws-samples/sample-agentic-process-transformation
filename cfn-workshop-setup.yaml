@@ -176,12 +176,12 @@ Resources:
                 Resource:
                   - !Sub 'arn:aws:bedrock:${AWS::Region}::foundation-model/amazon.nova-2-lite-v1:0'
                   - !Sub 'arn:aws:bedrock:${AWS::Region}::foundation-model/amazon.nova-2-multimodal-embeddings-v1:0'
-                  - !Sub 'arn:aws:bedrock:${AWS::Region}::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0'
+                  - !Sub 'arn:aws:bedrock:${AWS::Region}::foundation-model/anthropic.claude-sonnet-4-6'
                   - !Sub 'arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:inference-profile/us.amazon.nova-2-lite-v1:0'
-                  - !Sub 'arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:inference-profile/us.anthropic.claude-sonnet-4-20250514-v1:0'
+                  - !Sub 'arn:aws:bedrock:${AWS::Region}:${AWS::AccountId}:inference-profile/us.anthropic.claude-sonnet-4-6'
                   - 'arn:aws:bedrock:*::foundation-model/amazon.nova-2-lite-v1:0'
                   - 'arn:aws:bedrock:*::foundation-model/amazon.nova-2-multimodal-embeddings-v1:0'
-                  - 'arn:aws:bedrock:*::foundation-model/anthropic.claude-sonnet-4-20250514-v1:0'
+                  - 'arn:aws:bedrock:*::foundation-model/anthropic.claude-sonnet-4-6'
 
         # ── Bedrock AgentCore: memory management ──
         - PolicyName: bedrock-agentcore-memory

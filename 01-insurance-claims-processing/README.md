@@ -35,7 +35,7 @@ An Intake Orchestrator (supervisor agent) coordinates the full lifecycle using S
 - Python 3.10+
 - AWS account with Bedrock model access enabled:
   - Amazon Nova 2 Lite (`us.amazon.nova-2-lite-v1:0`)
-  - Claude Sonnet 4 (`us.anthropic.claude-sonnet-4-20250514-v1:0`)
+  - Claude Sonnet 4.6 (`us.anthropic.claude-sonnet-4-6`)
 - AWS CLI configured with credentials
 - Region: `us-east-1`
 
@@ -90,7 +90,7 @@ Each agent module exposes a `build_agent()` factory function that returns a fres
 |---|---|---|---|
 | Authenticator | Nova 2 Lite (reasoning) | MCP: verify_beneficiary_identity, verify_coverage_status, check_exclusions, verify_beneficiary_details | Validates identity and coverage |
 | Extractor | Nova 2 Lite (reasoning) | @tool: process_claim_documents | Extracts structured JSON from 7 document types |
-| Policy Verification | Claude Sonnet 4 | MCP: verify_coverage_status, calculate_death_benefit, check_exclusions | Cross-document consistency checks |
+| Policy Verification | Claude Sonnet 4.6 | MCP: verify_coverage_status, calculate_death_benefit, check_exclusions | Cross-document consistency checks |
 | Communicator | Nova 2 Lite | None | Drafts claim decision letters |
 
 ## MCP Server
