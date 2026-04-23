@@ -195,19 +195,20 @@ Resources:
                   - bedrock-agentcore:*
                 Resource: '*'
 
-        # ── S3: read claim documents ──
-        - PolicyName: s3-read-claim-documents
+        # ── S3: read/write claim documents ──
+        - PolicyName: s3-claim-documents
           PolicyDocument:
             Version: '2012-10-17'
             Statement:
               - Effect: Allow
                 Action:
                   - s3:ListBucket
-                Resource:
-                  - !GetAtt WorkshopS3Bucket.Arn
+                  - s3:ListAllMyBuckets
+                Resource: '*'
               - Effect: Allow
                 Action:
                   - s3:GetObject
+                  - s3:PutObject
                 Resource:
                   - !Sub '${WorkshopS3Bucket.Arn}/*'
 
@@ -287,6 +288,17 @@ Resources:
               - Effect: Allow
                 Action:
                   - sts:GetCallerIdentity
+                Resource: '*'
+
+        # ── CloudFormation: read stack outputs ──
+        - PolicyName: cloudformation-read
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - cloudformation:DescribeStacks
+                  - cloudformation:ListStacks
                 Resource: '*'
       Tags:
         - Key: Project
