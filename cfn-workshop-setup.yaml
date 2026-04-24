@@ -298,6 +298,18 @@ Resources:
                   - cloudformation:DescribeStacks
                   - cloudformation:ListStacks
                 Resource: '*'
+
+        # ── Marketplace: model subscriptions ──
+        - PolicyName: marketplace-model-access
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - aws-marketplace:ViewSubscriptions
+                  - aws-marketplace:Subscribe
+                  - aws-marketplace:Unsubscribe
+                Resource: '*'
       Tags:
         - Key: Project
           Value: agentic-process-transformation
